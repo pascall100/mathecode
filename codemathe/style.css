@@ -1,0 +1,88 @@
+ /* Allgemeiner Stil für die Seite */
+ body {
+    background-color: #a1bee3; /* Hellgrauer Hintergrund */
+    font-family: 'Arial', sans-serif; /* Serifenlose Schriftart */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Flex-Start statt Center, damit es oben startet */
+    height: 100vh;
+    margin: 0;
+    padding: 20px 0; /* Etwas Padding für besseren oberen Abstand */
+    box-sizing: border-box;
+}
+
+/* Container-Stil */
+.container {
+    background-color: #ffffff; /* Weißer Hintergrund für den Container */
+    max-width: 600px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sanfter Schatten */
+    border-radius: 10px; /* Abgerundete Ecken */
+    text-align: center;
+    margin: auto; /* Auto-Margin um vertikal zentriert zu bleiben */
+}
+
+/* Titel-Stil */
+h1 {
+    color: #333333; /* Dunkelgraue Schriftfarbe */
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Stil für die Aufgabenbeschreibung */
+p {
+    font-size: 18px;
+    color: #555555; /* Mittleres Grau */
+}
+
+/* Stil für das Eingabefeld */
+input[type="number"], input[type="text"], input[type="date"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #cccccc; /* Hellgrauer Rand */
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Stil für die Buttons */
+button {
+    background-color: #4CAF50; /* Grün */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover-Effekt für Buttons */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Feedback-Stil für richtige und falsche Antworten */
+p[id^="feedback"] {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Optional: Stil für mobile Geräte */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    input[type="number"], input[type="text"], input[type="date"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}

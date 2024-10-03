@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schulhof-Programmierung.de</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Online-Mathe-Aufgaben-Blatt erstellen </h2>
+        
+        <!-- Eingabefelder für Name, Vorname, Klasse und Datum -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Dein Name">
+        <br>
+        <label for="vorname">Vorname:</label>
+        <input type="text" id="vorname" placeholder="Dein Vorname">
+        <br>
+        <label for="klasse">Klasse:</label>
+        <input type="text" id="klasse" placeholder="Deine Klasse">
+        <br>
+        <label for="datum">Datum:</label>
+        <input type="date" id="datum">
+        <br><br>
+        
+        <!-- Aufgabe 1 -->
+        <p>Löse die Gleichung: <strong>x + 2 = 16</strong></p>
+        <label for="answer1">Deine Antwort (Wert von x):</label>
+        <input type="number" id="answer1" placeholder="Gib deine Antwort ein">
+        <p id="feedback1"></p>
+        
+        <!-- Aufgabe 2 -->
+        <p>Löse die Gleichung: <strong>x - 5 = 10</strong></p>
+        <label for="answer2">Deine Antwort (Wert von x):</label>
+        <input type="number" id="answer2" placeholder="Gib deine Antwort ein">
+        <p id="feedback2"></p>
+        
+        <!-- Aufgabe 3 -->
+        <p>Löse die Gleichung: <strong>3x = 12</strong></p>
+        <label for="answer3">Deine Antwort (Wert von x):</label>
+        <input type="number" id="answer3" placeholder="Gib deine Antwort ein">
+        <p id="feedback3"></p>
+        
+        <!-- Aufgabe 4 -->
+        <p>Löse die Gleichung: <strong>x / 4 = 5</strong></p>
+        <label for="answer4">Deine Antwort (Wert von x):</label>
+        <input type="number" id="answer4" placeholder="Gib deine Antwort ein">
+        <p id="feedback4"></p>
+        
+        <!-- Aufgabe 5 -->
+        <p>Löse die Gleichung: <strong>x + 7 = 20</strong></p>
+        <label for="answer5">Deine Antwort (Wert von x):</label>
+        <input type="number" id="answer5" placeholder="Gib deine Antwort ein">
+        <p id="feedback5"></p>
+        
+        <!-- Aufgabe 6 -->
+        <p>Löse die Gleichung: <strong>2x = 18</strong></p>
+        <label for="answer6">Deine Antwort (Wert von x):</label>
+        <input type="number" id="answer6" placeholder="Gib deine Antwort ein">
+        <p id="feedback6"></p>
+        
+        <!-- Überprüfen Button -->
+        <button onclick="checkAnswers()">Antworten überprüfen</button>
+        
+        <!-- PDF generieren Button -->
+        <button onclick="generatePDF()">PDF generieren</button>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        function checkAnswers() {
+            let allCorrect = true; // Variable, die überprüft, ob alle Aufgaben richtig gelöst wurden
+
+            // Aufgabe 1: x + 2 = 16
+            const answer1 = Number(document.getElementById("answer1").value);
+            const correctAnswer1 = 16 - 2; // x = 14
+            const feedback1 = document.getElementById("feedback1");
+            if (answer1 === correctAnswer1) {
+                feedback1.innerHTML = "Richtig! x = " + correctAnswer1;
+                feedback1.style.color = "green";
+            } else {
+                feedback1.innerHTML = "Falsch. Versuche es erneut!";
+                feedback1.style.color = "red";
+                allCorrect = false; // Eine Aufgabe ist falsch
+            }
+
+            // Aufgabe 2: x - 5 = 10
+            const answer2 = Number(document.getElementById("answer2").value);
+            const correctAnswer2 = 10 + 5; // x = 15
+            const feedback2 = document.getElementById("feedback2");
+            if (answer2 === correctAnswer2) {
+                feedback2.innerHTML = "Richtig! x = " + correctAnswer2;
+                feedback2.style.color = "green";
+            } else {
+                feedback2.innerHTML = "Falsch. Versuche es erneut!";
+                feedback2.style.color = "red";
+                allCorrect = false; // Eine Aufgabe ist falsch
+            }
+
+            // Aufgabe 3: 3x = 12
+            const answer3 = Number(document.getElementById("answer3").value);
+            const correctAnswer3 = 12 / 3; // x = 4
+            const feedback3 = document.getElementById("feedback3");
+            if (answer3 === correctAnswer3) {
+                feedback3.innerHTML = "Richtig! x = " + correctAnswer3;
+                feedback3.style.color = "green";
+            } else {
+                feedback3.innerHTML = "Falsch. Versuche es erneut!";
+                feedback3.style.color = "red";
+                allCorrect = false; // Eine Aufgabe ist falsch
+            }
+
+            // Aufgabe 4: x / 4 = 5
+            const answer4 = Number(document.getElementById("answer4").value);
+            const correctAnswer4 = 5 * 4; // x = 20
+            const feedback4 = document.getElementById("feedback4");
+            if (answer4 === correctAnswer4) {
+                feedback4.innerHTML = "Richtig! x = " + correctAnswer4;
+                feedback4.style.color = "green";
+            } else {
+                feedback4.innerHTML = "Falsch. Versuche es erneut!";
+                feedback4.style.color = "red";
+                allCorrect = false; // Eine Aufgabe ist falsch
+            }
+
+            // Aufgabe 5: x + 7 = 20
+            const answer5 = Number(document.getElementById("answer5").value);
+            const correctAnswer5 = 20 - 7; // x = 13
+            const feedback5 = document.getElementById("feedback5");
+            if (answer5 === correctAnswer5) {
+                feedback5.innerHTML = "Richtig! x = " + correctAnswer5;
+                feedback5.style.color = "green";
+            } else {
+                feedback5.innerHTML = "Falsch. Versuche es erneut!";
+                feedback5.style.color = "red";
+                allCorrect = false; // Eine Aufgabe ist falsch
+            }
+
+            // Aufgabe 6: 2x = 18
+            const answer6 = Number(document.getElementById("answer6").value);
+            const correctAnswer6 = 18 / 2; // x = 9
+            const feedback6 = document.getElementById("feedback6");
+            if (answer6 === correctAnswer6) {
+                feedback6.innerHTML = "Richtig! x = " + correctAnswer6;
+                feedback6.style.color = "green";
+            } else {
+                feedback6.innerHTML = "Falsch. Versuche es erneut!";
+                feedback6.style.color = "red";
+                allCorrect = false; // Eine Aufgabe ist falsch
+            }
+        }
+
+        function generatePDF() {
+            const doc = new jspdf.jsPDF();
+
+            // Titel
+            doc.setFontSize(18);
+            doc.text("Matheaufgaben und Lösungen", 10, 10);
+
+            // Name, Vorname, Klasse und Datum
+            const name = document.getElementById("name").value;
+            const vorname = document.getElementById("vorname").value;
+            const klasse = document.getElementById("klasse").value;
+            const datum = document.getElementById("datum").value;
+
+            doc.setFontSize(12);
+            doc.text(`Name: ${name}`, 10, 20);
+            doc.text(`Vorname: ${vorname}`, 10, 30);
+            doc.text(`Klasse: ${klasse}`, 10, 40);
+            doc.text(`Datum: ${datum}`, 10, 50);
+
+            // Aufgaben und Lösungen
+            const tasks = [
+                { question: "x + 2 = 16", answer: "x = 14" },
+                { question: "x - 5 = 10", answer: "x = 15" },
+                { question: "3x = 12", answer: "x = 4" },
+                { question: "x / 4 = 5", answer: "x = 20" },
+                { question: "x + 7 = 20", answer: "x = 13" },
+                { question: "2x = 18", answer: "x = 9" }
+            ];
+
+            let yOffset = 60;
+            doc.setFontSize(12);
+            tasks.forEach((task, index) => {
+                doc.text(`Aufgabe ${index + 1}: ${task.question}`, 10, yOffset);
+                doc.text(`Lösung: ${task.answer}`, 10, yOffset + 10);
+                yOffset += 30;
+            });
+
+            // PDF herunterladen
+            doc.save("matheaufgaben.pdf");
+        }
+    </script>
+</body>
+</html>
